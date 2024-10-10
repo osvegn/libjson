@@ -1,0 +1,27 @@
+set(JSON_SOURCE_ROOT ${PROJECT_SOURCE_DIR}/source)
+set(JSON_INCLUDE_ROOT ${PROJECT_SOURCE_DIR}/include)
+
+set(TARGET json)
+set(JSON_SOURCE
+    ${JSON_SOURCE_ROOT}/json.c
+)
+
+set_property(GLOBAL PROPERTY JSON_SOURCE ${JSON_SOURCE})
+
+option(SHARED OFF)
+if(SHARED)
+    add_library(${TARGET} SHARED ${JSON_SOURCE})
+else()
+    add_library(${TARGET} ${JSON_SOURCE})
+endif()
+
+target_include_directories(${TARGET}
+    PUBLIC ${JSON_INCLUDE_ROOT}
+)
+
+set_target_properties(${TARGET}
+    PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin
+    RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin
+    ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin
+)

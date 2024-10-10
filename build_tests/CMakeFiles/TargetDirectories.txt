@@ -1,0 +1,14 @@
+/home/osvegn/libjson/build_tests/CMakeFiles/test.dir
+/home/osvegn/libjson/build_tests/CMakeFiles/edit_cache.dir
+/home/osvegn/libjson/build_tests/CMakeFiles/rebuild_cache.dir
+/home/osvegn/libjson/build_tests/tests/CMakeFiles/test.dir
+/home/osvegn/libjson/build_tests/tests/CMakeFiles/edit_cache.dir
+/home/osvegn/libjson/build_tests/tests/CMakeFiles/rebuild_cache.dir
+/home/osvegn/libjson/build_tests/tests/unit_tests/CMakeFiles/test_json_init.dir
+/home/osvegn/libjson/build_tests/tests/unit_tests/CMakeFiles/test.dir
+/home/osvegn/libjson/build_tests/tests/unit_tests/CMakeFiles/edit_cache.dir
+/home/osvegn/libjson/build_tests/tests/unit_tests/CMakeFiles/rebuild_cache.dir
+/home/osvegn/libjson/build_tests/source/CMakeFiles/json.dir
+/home/osvegn/libjson/build_tests/source/CMakeFiles/test.dir
+/home/osvegn/libjson/build_tests/source/CMakeFiles/edit_cache.dir
+/home/osvegn/libjson/build_tests/source/CMakeFiles/rebuild_cache.dir

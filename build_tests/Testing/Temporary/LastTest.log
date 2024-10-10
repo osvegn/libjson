@@ -1,0 +1,19 @@
+Start testing: Oct 10 11:02 CEST
+----------------------------------------------------------
+1/1 Testing: test_json_init
+1/1 Test: test_json_init
+Command: "/home/osvegn/libjson/build_tests/tests/unit_tests/test_json_init"
+Directory: /home/osvegn/libjson/build_tests/tests/unit_tests
+"test_json_init" start time: Oct 10 11:02 CEST
+Output:
+----------------------------------------------------------
+[====] Synthesis: Tested: 3 | Passing: 3 | Failing: 0 | Crashing: 0 
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"test_json_init" end time: Oct 10 11:02 CEST
+"test_json_init" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 10 11:02 CEST

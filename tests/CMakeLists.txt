@@ -1,0 +1,6 @@
+if(TESTING OR UNIT_TESTING)
+    add_subdirectory(unit_tests)
+endif()
+# if(TESTING OR FUNCTIONAL_TESTING)
+#     add_subdirectory(functional)
+# endif()
