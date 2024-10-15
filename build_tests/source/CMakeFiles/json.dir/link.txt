@@ -1,2 +1,0 @@
-/usr/bin/ar qc /home/osvegn/libjson/bin/libjson.a CMakeFiles/json.dir/json.c.o
-/usr/bin/ranlib /home/osvegn/libjson/bin/libjson.a
