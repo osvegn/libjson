@@ -5,6 +5,7 @@ set(CRITERION_LIB ${PROJECT_SOURCE_DIR}/submodules/Criterion/build/src/libcriter
 
 set(SOURCES
     ${JSON_TESTS_ROOT}/json_init.c
+    ${JSON_TESTS_ROOT}/json_add.c
 )
 
 add_compile_options("--coverage" "-fprofile-arcs" "-ftest-coverage")

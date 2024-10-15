@@ -120,6 +120,7 @@ static int realloc_array(struct j_array_s *arr)
     return 0;
 }
 
+
 struct j_object_s *add_named_value(struct j_object_s *obj, char *name, struct j_value_s *value)
 {
     if (obj->count >= obj->capacity) {
@@ -170,4 +171,102 @@ struct j_object_s *add_named_string(struct j_object_s *obj, char *name, char *va
 
     from_string(&v, value);
     return add_named_value(obj, name, &v);
+}
+
+struct j_array_s *add_value(struct j_array_s *arr, struct j_value_s *value)
+{
+    if (arr->count >= arr->capacity) {
+        if (realloc_array(arr) < 0)
+            return 0;
+    }
+    arr->values[arr->count] = *value;
+    arr->count++;
+    return arr;
+}
+
+struct j_array_s *add_bool(struct j_array_s *arr, bool value)
+{
+    struct j_value_s v = {0};
+
+    from_boolean(&v, value);
+    return add_value(arr, &v);
+}
+
+struct j_array_s *add_int(struct j_array_s *arr, int value)
+{
+    struct j_value_s v = {0};
+
+    from_int(&v, value);
+    return add_value(arr, &v);
+}
+
+struct j_array_s *add_object(struct j_array_s *arr, struct j_object_s *value)
+{
+    struct j_value_s v = {0};
+
+    from_object(&v, value);
+    return add_value(arr, &v);
+}
+
+struct j_array_s *add_array(struct j_array_s *arr, struct j_array_s *value)
+{
+    struct j_value_s v = {0};
+
+    from_array(&v, value);
+    return add_value(arr, &v);
+}
+
+struct j_array_s *add_string(struct j_array_s *arr, char *value)
+{
+    struct j_value_s v = {0};
+
+    from_string(&v, value);
+    return add_value(arr, &v);
+}
+
+const char JSON_WHITESPACE[] = {' ', '\n', '\t', 0};
+
+bool is_whitespace(char c)
+{
+    for (int i = 0; JSON_WHITESPACE[i]; i++) {
+        if (c == JSON_WHITESPACE[i])
+            return true;
+    }
+    return false;
+}
+
+char *skip_whitespace(char *string)
+{
+    char *ptr = string;
+
+    while (*ptr && is_whitespace(*ptr)) {
+        ptr++;
+    }
+    return ptr;
+}
+
+struct j_value_s *parse_json(struct j_value_s *obj, const char *string)
+{
+    char *buffer = strdup(string);
+    char *start = buffer;
+
+    while (buffer && *buffer) {
+        buffer = skip_whitespace(buffer);
+        switch (*buffer)
+        {
+        case '{':
+            obj->type = OBJECT;
+            obj->u.object = object_from_json();
+            break;
+        case '[':
+            obj->type = ARRAY;
+            obj->u.array = array_from_json();
+            break;
+        default:
+            // Invalid start char.
+            break;
+        }
+    }
+    free(start);
+    return obj;
 }
